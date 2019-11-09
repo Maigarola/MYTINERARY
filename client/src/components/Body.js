@@ -9,7 +9,7 @@ class Body extends Component {
         <p>Find your perfect trip, deisgned by insiders who
           know and love their cities.</p>
         <h3>Start browsing</h3>
-        <NavLink to={"/browsing"}> <img src={circled} alt="circle" width="30%"/></NavLink>
+        <NavLink to={"/cities"}> <img src={circled} alt="circle" width="30%"/></NavLink>
       </div >
     );
   }

@@ -8,7 +8,8 @@ import Footer from './components/Footer.js'
 import Home from "./components/Home.js"
 import Users from "./components/Users.js"
 import Menu from "./components/Menu.js"
-import Browsing from "./components/Browsing.js"
+import Cities from "./components/Cities.js"
+import Itineraries from './components/Itineraries';
 
 class App extends Component {
   render() {
@@ -20,7 +21,8 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/users" component={Users} />
             <Route path="/menu" component={Menu} />
-            <Route path="/browsing" component={Browsing} />
+            <Route path="/cities" component={Cities} />
+            <Route path="/itineraries" component={Itineraries} />
           </Switch>
           <Footer />
 
