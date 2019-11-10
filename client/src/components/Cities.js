@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getCities } from "../store/actions/cityAction.js";
 import { NavLink } from 'react-router-dom';
+import FilteredCities from "./Filtercities";
 
 export class cities extends Component {
     constructor(props) {
@@ -15,10 +16,12 @@ export class cities extends Component {
     componentDidMount() {
         this.props.getCities();
     }
-
     render() {
+
+
         const { cities } = this.props;
         console.log(cities);
+
 
         if (cities.isLoaded) {
             return (<h1>...LOADING CITIES...</h1>)
@@ -27,6 +30,8 @@ export class cities extends Component {
             return (
                 <div>
                     <h1>Cities</h1>
+                    <FilteredCities />
+
                     <ul>
                         {cities.map(city => (
                             <React.Fragment key={cities._id}>

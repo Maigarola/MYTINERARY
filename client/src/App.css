@@ -16,3 +16,7 @@
   display:flex;
   justify-content: space-around;
 }
+.ulnotvisible{
+  text-align: center;
+  list-style-type:none;
+}
