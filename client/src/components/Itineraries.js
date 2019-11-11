@@ -26,13 +26,11 @@ export class Itinerary extends Component {
                 <ul>
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
-                            <li> 
-                            {itinerary.title}, 
-                            {itinerary.img},
-                            {itinerary.rating},
-                            {itinerary.duration},
-                            {itinerary.price},
-                            </li>
+                            <li>{itinerary.title}</li>
+                            <li> {itinerary.img}</li>
+                            <li> {itinerary.rating}</li>
+                            <li> {itinerary.duration}</li>
+                            <li> {itinerary.price}</li>
                         </React.Fragment>
                     ))}
                 </ul>

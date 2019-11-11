@@ -1,7 +1,6 @@
+import React, { Component } from 'react'
 
-import React, { Component } from 'react';
-
-class filterForm extends Component {
+class CityFilter extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -9,11 +8,10 @@ class filterForm extends Component {
     }
   }
   
-  handleChange = (event) => {
-    this.setState({
-      cityFilter: event.target.value
-    })
-    this.props.onChange(event.target.value)
+  handleChange = (e) => {
+    this.setState({cityFilter: e.target.value})
+    console.log(this.props)
+    this.props.onChange(e.target.value)
   }
   
   render() {
@@ -28,4 +26,4 @@ class filterForm extends Component {
   }
 }
 
-export default filterForm
+export default CityFilter

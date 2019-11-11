@@ -4,7 +4,7 @@ export const getCities = () => dispatch => {
             .then(cities => {
                 dispatch({
                     type: "GET_CITIES",
-                    payload: cities
+                    payload: cities,
                 })
             })
     }
