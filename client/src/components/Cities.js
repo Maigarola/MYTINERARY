@@ -8,7 +8,7 @@ export class cities extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filteredCities: [],
+            filteredCities: []
         };
     }
 
@@ -19,14 +19,15 @@ export class cities extends Component {
     filterCities = (cityFilter) => {
         let filteredCities = this.state.cities
         filteredCities = filteredCities.filter((city) => {
-            let cityName = city.name.toLowerCase() + city.country.toLowerCase();
-            return cityName.indexOf(cityFilter.toLowerCase()) !== -1;
+            let cityName = city.name.toLowerCase() + city.country.toLowerCase()
+            return cityName.indexOf(
+                cityFilter.toLowerCase()) !== -1
         })
         this.setState({
             filteredCities
         })
 
-    }
+    // }
     render() {
 
         const { cities } = this.props;
@@ -40,7 +41,7 @@ export class cities extends Component {
         return (
             <div>
                 <h1>Cities</h1>
-                <CityFilter cities = {this.state.filteredCities} match = {this.props.match} onChange={this.filterCities}/>                
+                <CityFilter onChange={this.filterCities}/>                
                 <ul className="ulnotvisible">
                     {cities.map(city => (
                         <React.Fragment key={cities._id}>
