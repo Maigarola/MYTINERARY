@@ -12,14 +12,11 @@ export class Itinerary extends Component {
     }
 
     componentDidMount() {
-        this.props.getItineraries();
+        this.props.getItineraries(this.props.match.params.cityId);
     }
 
     render() {
-        console.log(this.props);
         const { itineraries } = this.props;
-        console.log(itineraries);
-
         return (
             <div>
                 <h1>Itineraries</h1>

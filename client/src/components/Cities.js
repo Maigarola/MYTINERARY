@@ -35,12 +35,9 @@ export class cities extends Component {
         
         const {cities} = this.props
         let filteredCities = this.state.filteredCities
-        console.log("now:", this.state.filteredCities);
 
         if (this.state.filteredCities.length == 0){
             filteredCities = this.props.cities
-            console.log("paso por aqi")
-            console.log(filteredCities)
         }
         // if (cities.isLoaded) {
         //     return (<h1>...LOADING CITIES...</h1>)
@@ -53,7 +50,7 @@ export class cities extends Component {
                 <ul className="ulnotvisible">
                     {filteredCities.map(city => (
                         <React.Fragment key={filteredCities._id}>
-                            <NavLink className="links" to={"/itineraries"}> <li> {city.name}, {city.country}</li></NavLink>
+                            <NavLink className="links" to={"/itineraries/"+ city._id}> <li> {city.name}, {city.country}</li></NavLink>
                         </React.Fragment>
                     ))}
                 </ul>

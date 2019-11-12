@@ -30,4 +30,14 @@ router.post('/add', (req, res) => {
         })
 });
 
+router.get('/:cityId',
+	(req, res) => {
+  		let cityRequested = req.params.cityId;
+  		itineraryModel.find({ cityid: cityRequested })
+			.then(itineraries => {
+				res.send(itineraries)
+			})
+			.catch(err => console.log(err));
+});
+
 module.exports = router;

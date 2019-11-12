@@ -22,7 +22,7 @@ class App extends Component {
             <Route path="/users" component={Users} />
             <Route path="/menu" component={Menu} />
             <Route path="/cities" component={Cities} />
-            <Route path="/itineraries" component={Itineraries} />
+            <Route path="/itineraries/:cityId" component={Itineraries} />
           </Switch>
           <Footer />
 
