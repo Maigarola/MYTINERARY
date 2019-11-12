@@ -20,7 +20,7 @@ class CityFilter extends Component {
         <input type="text" id="filter" 
           value={this.state.cityFilter} 
           onChange={this.handleChange}/>
-      </div>
+        </div>
       )
   }
 }

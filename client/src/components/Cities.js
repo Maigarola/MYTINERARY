@@ -8,6 +8,7 @@ export class cities extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            cities: [],
             filteredCities: []
         };
     }
@@ -16,23 +17,24 @@ export class cities extends Component {
         this.props.getCities();
     }
 
-    filterCities = (cityFilter) => {
-        let filteredCities = this.state.cities
-        filteredCities = filteredCities.filter((city) => {
-            let cityName = city.name.toLowerCase() + city.country.toLowerCase()
-            return cityName.indexOf(
-                cityFilter.toLowerCase()) !== -1
+    filterCities = cityFilter => {
+        let filteredCities = this.props.cities
+        console.log("abans", filteredCities)
+        filteredCities = filteredCities.filter(city => {
+          let cityName = city.name.toLowerCase() + city.country.toLowerCase()
+          return (cityName.indexOf(cityFilter.toLowerCase()) !== -1)
         })
-        this.setState({
-            filteredCities
+        console.log("despres", filteredCities)
+       this.setState({
+          filteredCities
         })
+        console.log("filtered:", this.state.filteredCities);
+      }
 
-    // }
     render() {
-
-        const { cities } = this.props;
-        // console.log(cities);
-
+        
+        const {cities} = this.props
+        const filteredCities = this.state.filteredCities
 
         // if (cities.isLoaded) {
         //     return (<h1>...LOADING CITIES...</h1>)
@@ -41,10 +43,10 @@ export class cities extends Component {
         return (
             <div>
                 <h1>Cities</h1>
-                <CityFilter onChange={this.filterCities}/>                
+                <CityFilter onChange={this.filterCities}/>  
                 <ul className="ulnotvisible">
-                    {cities.map(city => (
-                        <React.Fragment key={cities._id}>
+                    {filteredCities.map(city => (
+                        <React.Fragment key={filteredCities._id}>
                             <NavLink className="links" to={"/itineraries"}> <li> {city.name}, {city.country}</li></NavLink>
                         </React.Fragment>
                     ))}
@@ -63,6 +65,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { getCities })(
+export default connect(mapStateToProps, {getCities})(
     cities
-);
+    );

@@ -14,10 +14,6 @@ const citySchema = new mongoose.Schema({
         required: true
 
     },
-    hastag: {
-        type: Array,
-        required: true
-    }
 })
 
 module.exports = mongoose.model('city', citySchema)
