@@ -34,8 +34,14 @@ export class cities extends Component {
     render() {
         
         const {cities} = this.props
-        const filteredCities = this.state.filteredCities
+        let filteredCities = this.state.filteredCities
+        console.log("now:", this.state.filteredCities);
 
+        if (this.state.filteredCities.length == 0){
+            filteredCities = this.props.cities
+            console.log("paso por aqi")
+            console.log(filteredCities)
+        }
         // if (cities.isLoaded) {
         //     return (<h1>...LOADING CITIES...</h1>)
         // }
