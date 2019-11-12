@@ -20,14 +20,16 @@ export class Itinerary extends Component {
         return (
             <div>
                 <h1>Itineraries</h1>
-                <ul>
+                <ul className="ulnotvisible">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
-                            <li>{itinerary.title}</li>
-                            <li> {itinerary.img}</li>
-                            <li> {itinerary.rating}</li>
-                            <li> {itinerary.duration}</li>
-                            <li> {itinerary.price}</li>
+                            <li><h3>{itinerary.title}</h3></li>
+                            <ul className="ulnotvisible">
+                            {/* <li> {itinerary.img}</li> */}
+                            <li> Rating: {itinerary.rating}</li>
+                            <li> Duration: {itinerary.duration}</li>
+                            <li> Price: "{itinerary.price}"</li>
+                            </ul> 
                         </React.Fragment>
                     ))}
                 </ul>

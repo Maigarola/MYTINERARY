@@ -33,10 +33,10 @@ export class cities extends Component {
 
     render() {
         
-        const {cities} = this.props
+        // const {cities} = this.props
         let filteredCities = this.state.filteredCities
 
-        if (this.state.filteredCities.length == 0){
+        if (this.state.filteredCities.length === 0){
             filteredCities = this.props.cities
         }
         // if (cities.isLoaded) {
@@ -49,7 +49,7 @@ export class cities extends Component {
                 <CityFilter onChange={this.filterCities}/>  
                 <ul className="ulnotvisible">
                     {filteredCities.map(city => (
-                        <React.Fragment key={filteredCities._id}>
+                        <React.Fragment key={city._id}>
                             <NavLink className="links" to={"/itineraries/"+ city._id}> <li> {city.name}, {city.country}</li></NavLink>
                         </React.Fragment>
                     ))}
