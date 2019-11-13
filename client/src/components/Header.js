@@ -11,7 +11,7 @@ class Header extends Component {
           <a href="/users"><img src={usuario} alt="usuario" height="40px" /></a>
           <a href="/menu"><img src={menu} alt="menu" height="40px" /></a>
         </nav>
-        <img src={logo} alt="logo" width="100%" />
+        <img className = "logo" src={logo} alt="logo" width="100%" />
       </div >
     );
   }

@@ -6,9 +6,12 @@
 .App {
   text-align: center;
 }
+.container{
+  margin-bottom: 50px;
+}
 .Footer {
-  position: absolute;
-  right: 0;
+  background-color: white;
+  position: fixed;
   bottom: 0;
   left: 0;
 }

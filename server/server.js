@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 
 const cityRouter = require('./routes/cityRouter');
 const itineraryRouter = require('./routes/itineraryRouter');
+const activityRouter = require('./routes/activityRouter');
 
 const mongoose = require('mongoose');
 const db = require('./keys').mongoURI;
@@ -18,6 +19,7 @@ app.use(cors());
 
 app.use('/cities', cityRouter);
 app.use('/itineraries', itineraryRouter);
+app.use('/activities', activityRouter);
 
 
 app.get('/api/hello', (req, res) => {
