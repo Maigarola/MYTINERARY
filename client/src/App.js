@@ -10,6 +10,8 @@ import Users from "./components/Users.js"
 import Menu from "./components/Menu.js"
 import Cities from "./components/Cities.js"
 import Itineraries from './components/Itineraries';
+import Activities from './components/Activities';
+
 
 class App extends Component {
   render() {
@@ -23,6 +25,8 @@ class App extends Component {
             <Route path="/menu" component={Menu} />
             <Route path="/cities" component={Cities} />
             <Route path="/itineraries/:cityId" component={Itineraries} />
+            <Route path="/activities/:itineraryId" component={Activities} />
+
           </Switch>
           <Footer />
 
