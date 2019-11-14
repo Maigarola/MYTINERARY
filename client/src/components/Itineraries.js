@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
@@ -24,9 +22,9 @@ export class Itinerary extends Component {
             <div>
                 <h1>Itineraries</h1>
                 <ul className="ulnotvisible">
-                    <Toggle/>
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
+                            <Toggle activities = {itineraries}/>
                             <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink>
                             <ul className="ulnotvisible">
                             <li> Rating: {itinerary.rating}</li>

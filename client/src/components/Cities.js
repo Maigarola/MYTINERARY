@@ -19,21 +19,17 @@ export class cities extends Component {
 
     filterCities = cityFilter => {
         let filteredCities = this.props.cities
-        console.log("abans", filteredCities)
         filteredCities = filteredCities.filter(city => {
           let cityName = city.name.toLowerCase() + city.country.toLowerCase()
           return (cityName.indexOf(cityFilter.toLowerCase()) !== -1)
         })
-        console.log("despres", filteredCities)
        this.setState({
           filteredCities
         })
-        console.log("filtered:", this.state.filteredCities);
       }
 
     render() {
         
-        // const {cities} = this.props
         let filteredCities = this.state.filteredCities
 
         if (this.state.filteredCities.length === 0){

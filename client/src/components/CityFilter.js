@@ -9,8 +9,8 @@ class CityFilter extends Component {
   }
   
   handleChange = (e) => {
-    this.setState({cityFilter: e.target.value})
-    this.props.onChange(e.target.value)
+  this.setState({cityFilter: e.target.value})
+  this.props.onChange(e.target.value)
   }
   
   render() {
