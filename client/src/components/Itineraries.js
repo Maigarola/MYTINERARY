@@ -1,8 +1,10 @@
+
+
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getItineraries } from "../store/actions/itineraryAction.js";
-
+import Toggle from "./Toggle"
 
 export class Itinerary extends Component {
     constructor(props) {
@@ -22,9 +24,10 @@ export class Itinerary extends Component {
             <div>
                 <h1>Itineraries</h1>
                 <ul className="ulnotvisible">
+                    <Toggle/>
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
-                            <NavLink className="links" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink>
+                            <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink>
                             <ul className="ulnotvisible">
                             <li> Rating: {itinerary.rating}</li>
                             <li> Duration: {itinerary.duration}</li>
@@ -37,7 +40,6 @@ export class Itinerary extends Component {
         )
     }
 }
-
 
 const mapStateToProps = (state) => {
     // console.log(state);
