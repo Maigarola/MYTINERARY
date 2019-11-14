@@ -50,7 +50,7 @@ export class cities extends Component {
                 <ul className="ulnotvisible">
                     {filteredCities.map(city => (
                         <React.Fragment key={city._id}>
-                            <NavLink className="links" to={"/itineraries/"+ city._id}> <li> {city.name}, {city.country}</li></NavLink>
+                            <NavLink className="links" to={"/itineraries/"+ city._id}> <li><button className = "mybutton"> {city.name}, {city.country}</button></li></NavLink>
                         </React.Fragment>
                     ))}
                 </ul>
