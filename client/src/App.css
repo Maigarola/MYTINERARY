@@ -1,36 +1,49 @@
 * {
-  margin: 5px;
+  margin: 0px;
+  padding: 0px;
   font-family: "Lucida Sans", "Lucida Sans Regular";
 }
 
 .App {
   text-align: center;
 }
+.Header{
+  margin: 10px;
+}
+.miCities{
+  padding: 19px;
+}
 .mybutton{
   width: 100%;
   height: 50px;
-  margin-left: -10px;
   background-color: rgb(172, 114, 114);
   font-size: 20px;
 }
-.container{
-  margin-bottom: 50px;
-  width: 100%;
-  text-align: center;
+.Body{
+  padding: 20px;
 }
 .Footer {
   background-color: white;
   position: fixed;
-  bottom: -5px;
+  bottom: 0px;
   left: 0;
 }
 .mynavbar {
   display: flex;
   justify-content: space-around;
 }
+.mycities{
+  margin-bottom: 20px;
+}
+#filter{
+  margin-top: 5px;
+  font-size: 20px;
+}
 .ulnotvisible {
   list-style-type: none;
-  margin-left: -20px;
+  margin-top: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
 }
 .links {
   text-decoration: none;

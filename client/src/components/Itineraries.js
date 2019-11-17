@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getItineraries } from "../store/actions/itineraryAction.js";
+import { getActivities } from "../store/actions/activityAction.js";
 import Toggle from "./Toggle"
 
 export class Itinerary extends Component {
@@ -9,11 +10,13 @@ export class Itinerary extends Component {
         super(props);
         this.state = {
             itineraries: [],
+            activities:[]
         };
     }
 
     componentDidMount() {
         this.props.getItineraries(this.props.match.params.cityId);
+        this.props.getActivities(this.props.match.params.ItineraryId);
     }
 
     render() {
@@ -24,12 +27,12 @@ export class Itinerary extends Component {
                 <ul className="ulnotvisible">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
-                            <Toggle activities = {itineraries}/>
+                            <Toggle itineraries = {this.state.itineraries} activities = {this.state.activities}/>
                             <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink>
                             <ul className="ulnotvisible">
-                            <li> Rating: {itinerary.rating}</li>
+                            {/* <li> Rating: {itinerary.rating}</li>
                             <li> Duration: {itinerary.duration}</li>
-                            <li> Price: "{itinerary.price}"</li>
+                            <li> Price: "{itinerary.price}"</li> */}
                             </ul> 
                         </React.Fragment>
                     ))}
@@ -40,12 +43,10 @@ export class Itinerary extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state);
     return {
         itineraries: state.itineraries.itineraries, //primer key de itineraryreducer
+        activities:state.activities.activities
     }
 };
 
-export default connect(mapStateToProps, { getItineraries })(
-    Itinerary
-);
+export default connect(mapStateToProps, { getItineraries, getActivities })(Itinerary);

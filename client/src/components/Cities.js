@@ -40,8 +40,8 @@ export class cities extends Component {
         // }
         // else {
         return (
-            <div>
-                <h1>Cities</h1>
+            <div className ="miCities">
+                <h1 className = "mycities">Cities</h1>
                 <CityFilter onChange={this.filterCities}/>  
                 <ul className="ulnotvisible">
                     {filteredCities.map(city => (
@@ -57,7 +57,6 @@ export class cities extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state);
     return {
         cities: state.cities.cities, //primer key de cityreducer
         isLoaded: state.cities.isLoaded
