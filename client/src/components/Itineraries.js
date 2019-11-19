@@ -10,7 +10,9 @@ export class Itinerary extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            itineraries: []
+            itineraries: [],
+            mycity: {},
+            myactivities: {}
         };
     }
 
@@ -22,14 +24,18 @@ export class Itinerary extends Component {
         
             fetch("/cities/find/" + this.props.match.params.cityId)
              .then (res => res.json())
-             .then (mycity =>{
-            console.log(mycity);
+             .then (data =>{
+            this.setState ({
+                mycity : data
+                })
             });
 
             fetch("/activities/find/" + this.props.match.params.cityId)
             .then (res => res.json())
-            .then (myactivities =>{
-           console.log(myactivities);
+            .then (data =>{
+            this.setState ({
+                myactivities : data
+                })
            });
     }
 

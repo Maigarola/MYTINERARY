@@ -30,7 +30,7 @@ router.post('/add', (req, res) => {
         })
 });
 
-router.get('/find/:cityId',
+router.get('/:cityId',
 	(req, res) => {
   		let cityRequested = req.params.cityId;
   		itineraryModel.find({ cityid: cityRequested })
