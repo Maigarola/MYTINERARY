@@ -39,12 +39,13 @@ export class Itinerary extends Component {
            });
     }
 
-    render() {
-       
+     render() {
+
         const { itineraries } = this.props;
+      
         return (
             <div>
-                {/* <h1>{}</h1> */}
+                <h1>{this.state.mycity.name}</h1>
                 <ul className="ulnotvisible">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
