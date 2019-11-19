@@ -14,6 +14,7 @@ router.post('/add', (req, res) => {
     const newActivity = new activityModel({
         name: req.body.name,
         itineraryId: req.body.itineraryId,
+        cityId: req.body.cityId,
         adress: req.body.adress,
         img: req.body.img,
         duration: req.body.duration,
@@ -29,10 +30,10 @@ router.post('/add', (req, res) => {
         })
 });
 
-router.get('/:itineraryId',
+router.get('/find/:cityId',
 	(req, res) => {
-  		let itineraryRequested = req.params.itineraryId;
-  		activityModel.find({ itineraryId: itineraryRequested })
+  		let itineraryRequested = req.params.cityId;
+  		activityModel.find({ cityId: itineraryRequested })
 			.then(activities => {
                 res.send(activities)
 			})

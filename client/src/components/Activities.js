@@ -27,7 +27,7 @@ export class Activity extends Component {
                             <ul className="ulnotvisible">
                             <li> Adress: {activity.adress}</li>
                             <li> Duration: {activity.duration} hours</li>
-                            <li> Price: "{activity.price}"</li>
+                            <li> Price: {activity.price} €</li>
                             </ul> 
                         </React.Fragment>
                     ))}

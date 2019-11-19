@@ -9,6 +9,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Itinerary } from './Itineraries';
 
 const useStyles = makeStyles(theme => ({
   card: {maxWidth: 345},
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {transform: 'rotate(180deg)',
 }}));
 
-export default function RecipeReviewCard() {
+export default function Toggle(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   
@@ -34,7 +35,7 @@ export default function RecipeReviewCard() {
 
   return (  
       <Card className={classes.card}>
-      <CardHeader title = "Itinerary Name"/>
+      <CardHeader title = {props.itinerary.title}/>
       <CardActions disableSpacing>
       <IconButton
           className={clsx(classes.expand, {[classes.expandOpen]: expanded,})}

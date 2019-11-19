@@ -1,39 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { getItineraries } from "../store/actions/itineraryAction.js";
-import { getActivities } from "../store/actions/activityAction.js";
 import Toggle from "./Toggle"
+
+// import Activities from "./Activities"
 
 export class Itinerary extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            itineraries: [],
-            activities:[]
+            itineraries: []
         };
     }
 
     componentDidMount() {
+        
         this.props.getItineraries(this.props.match.params.cityId);
-        this.props.getActivities(this.props.match.params.ItineraryId);
+
+        console.log(this.props.match.params.cityId);
+        
+            fetch("/cities/find/" + this.props.match.params.cityId)
+             .then (res => res.json())
+             .then (mycity =>{
+            console.log(mycity);
+            });
+
+            fetch("/activities/find/" + this.props.match.params.cityId)
+            .then (res => res.json())
+            .then (myactivities =>{
+           console.log(myactivities);
+           });
     }
 
     render() {
+       
         const { itineraries } = this.props;
         return (
             <div>
-                <h1>Itineraries</h1>
+                {/* <h1>{}</h1> */}
                 <ul className="ulnotvisible">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
-                            <Toggle itineraries = {this.state.itineraries} activities = {this.state.activities}/>
-                            <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink>
-                            <ul className="ulnotvisible">
+                            <Toggle itinerary = {itinerary}/>
+                            {/* <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink> */}
+                            {/* <ul className="ulnotvisible"> */}
                             {/* <li> Rating: {itinerary.rating}</li>
                             <li> Duration: {itinerary.duration}</li>
                             <li> Price: "{itinerary.price}"</li> */}
-                            </ul> 
+                            {/* </ul>  */}
                         </React.Fragment>
                     ))}
                 </ul>
@@ -44,9 +59,8 @@ export class Itinerary extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        itineraries: state.itineraries.itineraries, //primer key de itineraryreducer
-        activities:state.activities.activities
+        itineraries: state.itineraries.itineraries //primer key de itineraryreduce
     }
 };
 
-export default connect(mapStateToProps, { getItineraries, getActivities })(Itinerary);
+export default connect(mapStateToProps, { getItineraries })(Itinerary);

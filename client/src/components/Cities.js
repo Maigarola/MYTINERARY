@@ -57,8 +57,8 @@ export class cities extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        cities: state.cities.cities, //primer key de cityreducer
+    return { 
+        cities: state.cities.cities,//primer key de cityreducer
         isLoaded: state.cities.isLoaded
     }
 };
