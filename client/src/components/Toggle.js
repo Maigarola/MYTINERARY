@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {transform: 'rotate(180deg)',
 }}));
 
-export default function Toggle(props) {
+export default function Toggle (props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   

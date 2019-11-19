@@ -49,7 +49,7 @@ export class Itinerary extends Component {
                 <ul className="ulnotvisible">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
-                            <Toggle itinerary = {itinerary}/>
+                            <Toggle itinerary = {itinerary} activities = {this.state.activities}/>
                             {/* <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink> */}
                             {/* <ul className="ulnotvisible"> */}
                             {/* <li> Rating: {itinerary.rating}</li>
