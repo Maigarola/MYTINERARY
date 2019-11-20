@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(theme => ({
@@ -25,7 +24,6 @@ const useStyles = makeStyles(theme => ({
 }}));
 
 export default function Toggle (props) {
-  console.log(props.activities)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   
@@ -49,10 +47,9 @@ export default function Toggle (props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-        
           <ul className="ulnotvisible">
             {props.activities.map(activity => {
-              if ( props.itinerary._id == activity.itineraryId){
+              if ( props.itinerary._id === activity.itineraryId){
                 return (<React.Fragment key={activity._id}>
                   <li> Rating: {activity.name}</li>
                   <li> Duration: {activity.duration}</li>
@@ -61,9 +58,6 @@ export default function Toggle (props) {
               }
             })}
           </ul>
-          
-           {console.log(props.itinerary._id)}
-         
         </CardContent>
       </Collapse>
     </Card>

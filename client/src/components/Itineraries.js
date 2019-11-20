@@ -19,8 +19,6 @@ export class Itinerary extends Component {
     componentDidMount() {
         
         this.props.getItineraries(this.props.match.params.cityId);
-
-        console.log(this.props.match.params.cityId);
         
             fetch("/cities/find/" + this.props.match.params.cityId)
              .then (res => res.json())
@@ -42,8 +40,7 @@ export class Itinerary extends Component {
      render() {
 
         const { itineraries } = this.props;
-       
-      
+            
         return (
             <div>
                 <h1>{this.state.mycity.name}</h1>
@@ -51,7 +48,6 @@ export class Itinerary extends Component {
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
                             <Toggle itinerary = {itinerary} activities = {this.state.myactivities}/>
-                            {/* <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink> */}
                             {/* <ul className="ulnotvisible"> */}
                             {/* <li> Rating: {itinerary.rating}</li>
                             <li> Duration: {itinerary.duration}</li>
