@@ -12,7 +12,7 @@ export class Itinerary extends Component {
         this.state = {
             itineraries: [],
             mycity: {},
-            myactivities: {}
+            myactivities: []
         };
     }
 
@@ -42,14 +42,15 @@ export class Itinerary extends Component {
      render() {
 
         const { itineraries } = this.props;
+       
       
         return (
             <div>
                 <h1>{this.state.mycity.name}</h1>
-                <ul className="ulnotvisible">
+                <div className="ulnotvisible">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
-                            <Toggle itinerary = {itinerary} activities = {this.state.activities}/>
+                            <Toggle itinerary = {itinerary} activities = {this.state.myactivities}/>
                             {/* <NavLink className="itinerary" to={"/activities/"+ itinerary._id}><li>{itinerary.title}</li></NavLink> */}
                             {/* <ul className="ulnotvisible"> */}
                             {/* <li> Rating: {itinerary.rating}</li>
@@ -58,7 +59,7 @@ export class Itinerary extends Component {
                             {/* </ul>  */}
                         </React.Fragment>
                     ))}
-                </ul>
+                </div>
             </div>
         )
     }

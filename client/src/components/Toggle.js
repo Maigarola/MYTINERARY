@@ -9,7 +9,6 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Itinerary } from './Itineraries';
 
 const useStyles = makeStyles(theme => ({
   card: {maxWidth: 345},
@@ -26,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 }}));
 
 export default function Toggle (props) {
+  console.log(props.activities)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   
@@ -33,7 +33,8 @@ export default function Toggle (props) {
     setExpanded(!expanded);
   }; 
 
-  return (  
+  return (  //Utilizar como props.activities
+
       <Card className={classes.card}>
       <CardHeader title = {props.itinerary.title}/>
       <CardActions disableSpacing>
@@ -48,13 +49,21 @@ export default function Toggle (props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-           Primer paragraph
-          </Typography>
-          <Typography paragraph>
-            Second paragraph
-          </Typography>
+        
+          <ul className="ulnotvisible">
+            {props.activities.map(activity => {
+              if ( props.itinerary._id == activity.itineraryId){
+                return (<React.Fragment key={activity._id}>
+                  <li> Rating: {activity.name}</li>
+                  <li> Duration: {activity.duration}</li>
+                  <li> Price: "{activity.price}"</li>
+                </React.Fragment>)
+              }
+            })}
+          </ul>
+          
+           {console.log(props.itinerary._id)}
+         
         </CardContent>
       </Collapse>
     </Card>
