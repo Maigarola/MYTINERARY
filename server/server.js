@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const config = require('config');
+const config = require('config');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -12,8 +12,8 @@ const activityRouter = require('./routes/activityRouter');
 const userRouter = require('./routes/userRouter');
 
 const mongoose = require('mongoose');
-const db = require('./keys').mongoURI;
-// const db = config.get('mongoURI');
+// const db = require('./keys').mongoURI;
+const db = config.get('mongoURI');
 
 app.use(bodyParser.json());
 //app.use(express.json()) --> si lo quieres hacer sin BodyParser

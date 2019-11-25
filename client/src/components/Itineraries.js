@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-// import { NavLink } from 'react-router-dom';
 import { getItineraries } from "../store/actions/itineraryAction.js";
 import Toggle from "./Toggle"
 
@@ -48,11 +47,6 @@ export class Itinerary extends Component {
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
                             <Toggle itinerary = {itinerary} activities = {this.state.myactivities}/>
-                            {/* <ul className="ulnotvisible"> */}
-                            {/* <li> Rating: {itinerary.rating}</li>
-                            <li> Duration: {itinerary.duration}</li>
-                            <li> Price: "{itinerary.price}"</li> */}
-                            {/* </ul>  */}
                         </React.Fragment>
                     ))}
                 </div>

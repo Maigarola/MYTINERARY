@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
-
 router.get('/all', (req, res) => {
     userModel.find()
         .then(files => {
@@ -42,10 +41,9 @@ router.post('/add', (req, res) => {
                 newUser.password = hash;
                 newUser.save()
                 .then(user => {
-
                     jwt.sign(
                         {id: user.id},
-                        config.get('jtwsecret'),
+                        config.get('jwtSecret'),
                         {expiresIn: 3600},
                         (err,token) => {
                             if (err) throw err;
