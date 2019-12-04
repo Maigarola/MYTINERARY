@@ -1,5 +1,5 @@
 const initialState = {
-    itineraries: [],
+    users: [],
 }
 export default function userReducer(state = initialState, action) {
     switch (action.type) {

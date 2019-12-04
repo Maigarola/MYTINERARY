@@ -10,6 +10,7 @@ const cityRouter = require('./routes/cityRouter');
 const itineraryRouter = require('./routes/itineraryRouter');
 const activityRouter = require('./routes/activityRouter');
 const userRouter = require('./routes/userRouter');
+const authRouter = require('./routes/authRouter')
 
 const mongoose = require('mongoose');
 // const db = require('./keys').mongoURI;
@@ -25,6 +26,8 @@ app.use('/cities', cityRouter);
 app.use('/itineraries', itineraryRouter);
 app.use('/activities', activityRouter);
 app.use('/users',userRouter);
+app.use('/auth', authRouter);
+
 
 
 app.get('/api/hello', (req, res) => {

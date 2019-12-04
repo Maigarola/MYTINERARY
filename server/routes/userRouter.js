@@ -22,10 +22,10 @@ router.post('/add', (req, res) => {
         return res.status(400).json({msg:"Please enter all fields"});
     }
 
-    console.log("Add users")
     //Check for existing model
     userModel.findOne({email})
     .then(user =>{
+
         if (user) return res.status(400).json({msg: "User alredy exists "});
 
         const newUser = new userModel({
@@ -57,7 +57,6 @@ router.post('/add', (req, res) => {
                             })
                         }
                     )
-                   
                 })
             })
         })
