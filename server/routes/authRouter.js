@@ -14,7 +14,7 @@ router.get('/all', (req, res) => {
         .catch(err => console.log(err));
 });
 
-router.post('/add', (req, res) => {
+router.post('/', (req, res) => {
     const {
         email,
         password
