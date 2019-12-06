@@ -5,18 +5,26 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 //Store REDUX
-import { composeWithDevTools } from "redux-devtools-extension";
-import { createStore, applyMiddleware } from "redux";
+// import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
 //rootreducer
 import rootReducer from "./store/reducers/rootReducer";
 
+const initialState = {};
+const middleWare = [thunk];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(thunk))
+    initialState,
+    composeEnhancers(applyMiddleware(...middleWare))
 );
+
+export default store;
+
 ReactDOM.render(
     <Provider store={store}>
         <App />
