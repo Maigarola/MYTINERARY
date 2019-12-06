@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 import {loadUser} from '../store/actions/authAction'
 import store from '../store'
+import RegisterModal from './auth/RegisterModal';
 
 class Users extends Component {
     
