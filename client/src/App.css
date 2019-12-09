@@ -57,3 +57,7 @@ height: 50px;
   color: black;
   background-color: grey;
 }
+.picture{
+  border-radius: 50%;
+  height: 50px;
+}

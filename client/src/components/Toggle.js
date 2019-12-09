@@ -8,6 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles(theme => ({
   card: {maxWidth: 345},
@@ -34,7 +35,13 @@ export default function Toggle (props) {
   return (  //Utilizar como props.activities
 
       <Card className={classes.card}>
-      <CardHeader title = {props.itinerary.title}/>
+         <CardHeader className="cardHeader"
+        avatar={
+          <img className="picture" src ={props.itinerary.img} alt="User"/>          
+        }
+        title={props.itinerary.title}
+        subheader={props.itinerary.cityName}
+        />
       <CardActions disableSpacing>
       <IconButton
           className={clsx(classes.expand, {[classes.expandOpen]: expanded,})}
