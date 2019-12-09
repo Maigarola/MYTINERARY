@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getItineraries } from "../store/actions/itineraryAction.js";
 import Toggle from "./Toggle"
+import Header from "./Header"
 
 // import Activities from "./Activities"
 
@@ -42,7 +43,7 @@ export class Itinerary extends Component {
             
         return (
             <div>
-                <h1>{this.state.mycity.name}</h1>
+                <h1 className = "cityname">{this.state.mycity.name}</h1>
                 <div className="ulnotvisible">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>

@@ -8,9 +8,6 @@
   text-align: center;
 }
 
-.miCities{
-  padding: 19px;
-}
 .mybutton{
   padding: 5px;
 }
@@ -59,5 +56,20 @@ height: 50px;
 }
 .picture{
   border-radius: 50%;
-  height: 50px;
+  height: 75px;
+}
+.activity{
+  padding-bottom: 20px;
+}
+.descriptions{
+  font-size: 14px;
+  font-style: italic;
+}
+.action{
+  height: 35px;
+}
+.cityname{
+  font-size: 30px;
+  font-style: italic;
+  font-family: "Courier New", Courier, monospace;
 }

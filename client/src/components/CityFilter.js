@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, NavLink, Alert } from 'reactstrap';
+import {Form, FormGroup, Label, Input} from 'reactstrap';
 
 class CityFilter extends Component {
   constructor(props) {
@@ -25,8 +25,6 @@ class CityFilter extends Component {
               onChange={this.handleChange} />
           </FormGroup>
         </Form>
-
-
       </div>
     )
   }

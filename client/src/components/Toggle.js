@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,56 +12,58 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles(theme => ({
-  card: {maxWidth: 345},
-  media: {height: 0, paddingTop: '56.25%', // 16:9
+  card: { maxWidth: 345 },
+  media: {
+    height: 0, paddingTop: '56.25%', // 16:9
   },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
+      duration: theme.transitions.duration.shortest,
     }),
   },
-  expandOpen: {transform: 'rotate(180deg)',
-}}));
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  }
+}));
 
-export default function Toggle (props) {
+export default function Toggle(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  }; 
+  };
 
   return (  //Utilizar como props.activities
 
-      <Card className={classes.card}>
-         <CardHeader className="cardHeader"
-        avatar={
-          <img className="picture" src ={props.itinerary.img} alt="User"/>          
-        }
+    <Card className={classes.card}>
+      <CardHeader className="cardHeader"
+        avatar={<img className="picture" src={props.itinerary.img} alt="User" />}
         title={props.itinerary.title}
-        subheader={props.itinerary.cityName}
-        />
-      <CardActions disableSpacing>
-      <IconButton
-          className={clsx(classes.expand, {[classes.expandOpen]: expanded,})}
+        subheader={props.itinerary.rating} 
+      />
+      <CardActions className = "action" disableSpacing>
+        <IconButton
+          className={clsx(classes.expand, { [classes.expandOpen]: expanded, })}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
-       <ExpandMoreIcon />
-      </IconButton>
+          <ExpandMoreIcon />
+        </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <ul className="ulnotvisible">
+          <ul className="ulnotvisible activity">
             {props.activities.map(activity => {
-              if ( props.itinerary._id === activity.itineraryId){
+              if (props.itinerary._id === activity.itineraryId) {
                 return (<React.Fragment key={activity._id}>
-                  <li> Rating: {activity.name}</li>
-                  <li> Duration: {activity.duration}</li>
-                  <li> Price: "{activity.price}"</li>
+                  <li> <h5>{activity.name}</h5></li>
+                  <li> <h6>Duration: {activity.duration} hours</h6></li>
+                  <li> <h6>Price: {activity.price}€</h6></li>
+                  <li> <p className="descriptions">"{activity.description}"</p></li>
                 </React.Fragment>)
               }
             })}

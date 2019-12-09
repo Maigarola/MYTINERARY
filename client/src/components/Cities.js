@@ -4,6 +4,7 @@ import { getCities } from "../store/actions/cityAction.js";
 import { NavLink } from 'react-router-dom';
 import CityFilter from "./CityFilter";
 import { Button } from 'reactstrap';
+import Header from './Header'
 
 export class cities extends Component {
     constructor(props) {
@@ -41,7 +42,8 @@ export class cities extends Component {
         // }
         // else {
         return (
-            <div className ="miCities">
+            <div>
+                <Header />
                 <CityFilter onChange={this.filterCities}/>  
                 <ul className="ulnotvisible">
                     {filteredCities.map(city => (

@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { Collapse, Navbar, NavbarToggler,Nav,NavItem,NavLink,Container} from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler,Nav,NavItem,Container} from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterModal';
 import LoginModal from './auth/LoginModal';
 import Logout from './auth/Logout';
-
+import Header from './Header';
 class AppNavbar extends Component {
   state = {
     isOpen: false
@@ -23,7 +23,6 @@ class AppNavbar extends Component {
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
-
     const authLinks = (
       <Fragment>
         <NavItem>
@@ -60,6 +59,7 @@ class AppNavbar extends Component {
             </Collapse>
           </Container>
         </Navbar>
+        {/* <Header/> */}
       </div>
     );
   }
