@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, NavLink, Alert } from 'reactstrap';
 
 class CityFilter extends Component {
   constructor(props) {
@@ -7,21 +8,27 @@ class CityFilter extends Component {
       cityFilter: ""
     }
   }
-  
+
   handleChange = (e) => {
-  this.setState({cityFilter: e.target.value})
-  this.props.onChange(e.target.value)
+    this.setState({ cityFilter: e.target.value })
+    this.props.onChange(e.target.value)
   }
-  
+
   render() {
     return (
       <div>
-        <label htmlFor="filter">Filter by City: </label>
-        <input type="text" id="filter" 
-          value={this.state.cityFilter} 
-          onChange={this.handleChange}/>
-        </div>
-      )
+        <Form>
+          <FormGroup>
+            <Label htmlFor="filter">Filter by City: </Label>
+            <Input type="text" id="filter"
+              value={this.state.cityFilter}
+              onChange={this.handleChange} />
+          </FormGroup>
+        </Form>
+
+
+      </div>
+    )
   }
 }
 

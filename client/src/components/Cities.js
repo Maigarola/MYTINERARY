@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getCities } from "../store/actions/cityAction.js";
 import { NavLink } from 'react-router-dom';
 import CityFilter from "./CityFilter";
+import { Button } from 'reactstrap';
 
 export class cities extends Component {
     constructor(props) {
@@ -41,12 +42,12 @@ export class cities extends Component {
         // else {
         return (
             <div className ="miCities">
-                <h1 className = "mycities">Cities</h1>
                 <CityFilter onChange={this.filterCities}/>  
                 <ul className="ulnotvisible">
                     {filteredCities.map(city => (
                         <React.Fragment key={city._id}>
-                            <NavLink className="links" to={"/itineraries/"+ city._id}> <li><button className = "mybutton"> {city.name}, {city.country}</button></li></NavLink>
+                            <NavLink className="links" to={"/itineraries/"+ city._id}> 
+                            <li className = "mybutton"><Button color="danger" size="lg" block > {city.name}, {city.country}</Button></li></NavLink>
                         </React.Fragment>
                     ))}
                 </ul>
