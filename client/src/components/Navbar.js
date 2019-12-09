@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterModal';
 import LoginModal from './auth/LoginModal';
 import Logout from './auth/Logout';
-import Header from './Header';
+
 class AppNavbar extends Component {
   state = {
     isOpen: false

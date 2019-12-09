@@ -4,7 +4,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Componentes
-import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import Home from "./components/Home.js"
 import Users from "./components/Users.js"

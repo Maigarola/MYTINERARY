@@ -18,7 +18,7 @@ class CityFilter extends Component {
     return (
       <div>
         <Form>
-          <FormGroup>
+          <FormGroup className = "thefilter">
             <Label htmlFor="filter">Filter by City: </Label>
             <Input type="text" id="filter"
               value={this.state.cityFilter}

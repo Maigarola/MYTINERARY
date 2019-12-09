@@ -3,11 +3,12 @@
   padding: 0px;
   font-family: "Lucida Sans", "Lucida Sans Regular";
 }
-
 .App {
   text-align: center;
 }
-
+.miCities{
+  padding: 19px;
+}
 .mybutton{
   padding: 5px;
 }
@@ -28,16 +29,14 @@ height: 50px;
   bottom: 0px;
   left: 0;
 }
-.mynavbar {
-  display: flex;
-  justify-content: space-around;
-}
 .mycities{
   margin-bottom: 20px;
 }
-#filter{
+.thefilter{
   margin-top: 5px;
   font-size: 20px;
+  padding-left:25px;
+  padding-right:25px;
 }
 .ulnotvisible {
   list-style-type: none;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getItineraries } from "../store/actions/itineraryAction.js";
 import Toggle from "./Toggle"
-import Header from "./Header"
 
 // import Activities from "./Activities"
 
