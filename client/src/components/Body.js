@@ -4,6 +4,12 @@ import { NavLink } from 'react-router-dom';
 import Header from './Header';
 
 class Body extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuthenticated: false
+    };
+}
   render() {
     return (
       <div className="Body" >

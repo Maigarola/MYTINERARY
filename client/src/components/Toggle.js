@@ -54,18 +54,18 @@ export default function Toggle(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <ul className="ulnotvisible activity">
-            {props.activities.map(activity => {
+          {props.activities.map(activity => {
               if (props.itinerary._id === activity.itineraryId) {
                 return (<React.Fragment key={activity._id}>
-                  <li> <h5>{activity.name}</h5></li>
-                  <li> <h6>Duration: {activity.duration} hours</h6></li>
-                  <li> <h6>Price: {activity.price}€</h6></li>
-                  <li> <p className="descriptions">"{activity.description}"</p></li>
+                <div>
+                  <h5>{activity.name}</h5>
+                  <h6>Duration: {activity.duration} hours</h6>
+                  <h6>Price: {activity.price}€</h6>
+                  <p className="descriptions">"{activity.description}"</p>
+                </div>
                 </React.Fragment>)
               }
             })}
-          </ul>
         </CardContent>
       </Collapse>
     </Card>

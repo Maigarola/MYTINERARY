@@ -4,14 +4,14 @@ import { getCities } from "../store/actions/cityAction.js";
 import { NavLink } from 'react-router-dom';
 import CityFilter from "./CityFilter";
 import { Button } from 'reactstrap';
-import Header from './Header'
+import Header from './Header';
 
 export class cities extends Component {
     constructor(props) {
         super(props);
         this.state = {
             cities: [],
-            filteredCities: []
+            filteredCities: [],
         };
     }
 
